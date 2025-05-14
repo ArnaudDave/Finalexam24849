@@ -1,101 +1,131 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{base::layout(~{::section})}">
+	  th:replace="~{base::layout(~{::section})}">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title th:text="${product.title} + ' | GreenCart'">Product Details</title>
+
 </head>
 <body>
-	<section>
-		<div class="container card-sh"
-			style="margin-top: 70px; margin-bottom: 100px">
-
-			<div class="col-md-12 p-5">
-				<div class="row">
-					<th:block th:if="${session.succMsg}">
-						<p class="text-success alert alert-success text-center" role="alert">[[${session.succMsg}]]</p>
+<section>
+	<div class="container product-detail-container">
+		<!-- Alert Messages -->
+		<div class="row justify-content-center">
+			<div class="col-lg-10">
+				<th:block th:if="${session.succMsg}">
+					<div class="alert-message alert-success">
+						[[${session.succMsg}]]
 						<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
-					</th:block>
-
-					<th:block th:if="${session.errorMsg}">
-						<p class="text-danger text-center  alert alert-danger">[[${session.errorMsg}]]</p>
-						<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
-
-					</th:block>
-					<div class="col-md-6 text-end">
-						<img alt="" th:src="@{'/img/product_img/'+${product.image}}" width="300px"
-							height="250px">
 					</div>
+				</th:block>
 
-					<div class="col-md-6">
+				<th:block th:if="${session.errorMsg}">
+					<div class="alert-message alert-error">
+						[[${session.errorMsg}]]
+						<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+					</div>
+				</th:block>
+			</div>
+		</div>
 
-						<p class="fs-3">[[${product.title}]]</p>
-						<p>
-							<span class="fw-bold">Description : </span><br>[[${product.description}]]
-						</p>
-						<p>
-							<span class="fw-bold"> Product Details: </span> <br> Status
-							:
-							<th:block th:if="${product.stock>0}">
-								<span class="badge bg-success">Available</span>
-							</th:block>
-
-							<th:block th:unless="${product.stock>0}">
-								<span class="badge bg-warning">out of stock</span>
-							</th:block>
-
-
-							<br> Category: [[${product.category}]]<br> Policy : 7
-							Days Replacement & Return
-						</p>
-						<p class="fs-5 fw-bold">
-							Price :&nbsp; &nbsp; &nbsp; &nbsp;<i class="fas fa-rupee-sign"></i>
-							[[${product.discountPrice}]] <span
-								class="fs-6 text-decoration-line-through text-secondary">[[${product.price}]]</span>
-							<span class="fs-6  text-success">[[${product.discount}]]%
-								off</span>
-						</p>
-
+		<!-- Product Detail -->
+		<div class="row justify-content-center">
+			<div class="col-lg-10">
+				<div class="card border-0 shadow-none">
+					<div class="card-body p-4">
 						<div class="row">
-							<div class="col-md-4 text-success text-center p-2">
-								<i class="fas fa-money-bill-wave fa-2x"></i>
-								<p>Cash On Delivery</p>
+							<!-- Product Image -->
+							<div class="col-md-6">
+								<div class="product-gallery">
+									<img th:src="@{'/img/product_img/'+${product.image}}"
+										 class="product-image"
+										 th:alt="${product.title}">
+								</div>
 							</div>
-							<div class="col-md-4 text-danger text-center p-2">
-								<i class="fas fa-undo-alt fa-2x"></i>
-								<p>Return Available</p>
-							</div>
-							<div class="col-md-4 text-primary text-center p-2">
-								<i class="fas fa-truck-moving fa-2x"></i>
-								<p>Free Shipping</p>
+
+							<!-- Product Info -->
+							<div class="col-md-6 product-info">
+								<h1 class="product-title" th:text="${product.title}">Product Title</h1>
+
+								<div class="price-container">
+									<span class="current-price">FRw [[${product.discountPrice}]]</span>
+									<span class="original-price">FRw [[${product.price}]]</span>
+									<span class="discount-badge">[[${product.discount}]]% OFF</span>
+								</div>
+
+								<p class="product-description" th:text="${product.description}">
+									Product description goes here...
+								</p>
+
+								<div class="product-meta">
+									<div class="meta-item">
+										<span class="meta-label">Availability:</span>
+										<th:block th:if="${product.stock>0}">
+											<span class="in-stock">In Stock</span>
+										</th:block>
+										<th:block th:unless="${product.stock>0}">
+											<span class="out-of-stock">Out of Stock</span>
+										</th:block>
+									</div>
+
+									<div class="meta-item">
+										<span class="meta-label">Category:</span>
+										<span th:text="${product.category}">Category</span>
+									</div>
+
+									<div class="meta-item">
+										<span class="meta-label">Return Policy:</span>
+										<span>7 Days Replacement & Return</span>
+									</div>
+								</div>
+
+								<div class="benefits-grid">
+									<div class="benefit-item">
+										<div class="benefit-icon text-success">
+											<i class="fas fa-money-bill-wave"></i>
+										</div>
+										<div class="benefit-text">Cash On Delivery</div>
+									</div>
+									<div class="benefit-item">
+										<div class="benefit-icon text-danger">
+											<i class="fas fa-undo-alt"></i>
+										</div>
+										<div class="benefit-text">Return Available</div>
+									</div>
+									<div class="benefit-item">
+										<div class="benefit-icon text-primary">
+											<i class="fas fa-truck"></i>
+										</div>
+										<div class="benefit-text">Free Shipping</div>
+									</div>
+								</div>
+
+								<th:block th:if="${product.stock>0}">
+									<th:block th:if="${user==null}">
+										<a href="/signin" class="btn add-to-cart-btn">
+											<i class="fas fa-shopping-cart me-2"></i> Add To Cart
+										</a>
+									</th:block>
+									<th:block th:unless="${user==null}">
+										<a th:href="@{'/user/addCart?pid='+${product.id}+'&uid='+${user.id}}"
+										   class="btn add-to-cart-btn">
+											<i class="fas fa-shopping-cart me-2"></i> Add To Cart
+										</a>
+									</th:block>
+								</th:block>
+
+								<th:block th:unless="${product.stock>0}">
+									<button class="btn out-of-stock-btn" disabled>
+										<i class="fas fa-exclamation-circle me-2"></i> Out of Stock
+									</button>
+								</th:block>
 							</div>
 						</div>
-
-						<th:block th:if="${product.stock>0}">
-							<th:block th:if="${user==null}">
-								<a href="/signin" class="btn btn-danger col-md-12">Add To
-									Cart</a>
-							</th:block>
-
-							<th:block th:unless="${user==null}">
-								<a
-									th:href="@{'/user/addCart?pid='+${product.id}+'&uid='+${user.id}}"
-									class="btn btn-danger col-md-12">Add To Cart</a>
-							</th:block>
-
-						</th:block>
-
-						<th:block th:unless="${product.stock>0}">
-							<a href="#" class="btn text-white btn-warning col-md-12">Out
-								of Stock</a>
-						</th:block>
-
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-	</section>
+	</div>
+</section>
 </body>
 </html>
