@@ -4,6 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -32,6 +33,462 @@
    .content-wrap {
        flex: 1;
    }
+
+   :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4bb543;
+            --error-color: #ff3333;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        :root {
+            --ecoprimary: #4CAF50;
+            --ecosecondary: #388E3C;
+            --ecoaccent: #8BC34A;
+            --ecolight: #F1F8E9;
+            --ecodark: #2E7D32;
+            --ecosuccess: #4BB543;
+            --ecoerror: #FF5252;
+            --ecoborder-radius: 10px;
+            --ecoshadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --ecotransition: all 0.3s ease-in-out;
+        }
+
+        .ecoreset-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .ecoreset-card {
+            background: white;
+            border-radius: var(--ecoborder-radius);
+            box-shadow: var(--ecoshadow);
+            overflow: hidden;
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            transition: var(--ecotransition);
+            animation: ecofadeIn 0.8s ease-out;
+        }
+
+        .ecoreset-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        .ecoreset-illustration {
+            flex: 1;
+            background: linear-gradient(135deg, var(--ecoprimary) 0%, var(--ecodark) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        .ecoreset-illustration::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            animation: ecorotate 20s linear infinite;
+        }
+
+        .ecoreset-illustration img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+            z-index: 2;
+            position: relative;
+        }
+
+        .ecoreset-content {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ecoreset-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .ecoreset-header h1 {
+            color: var(--ecodark);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .ecoreset-header p {
+            color: #616161;
+            font-size: 0.9rem;
+        }
+
+        .ecoform-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .ecolabel {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--ecodark);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .ecoinput {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #E0E0E0;
+            border-radius: var(--ecoborder-radius);
+            font-size: 1rem;
+            transition: var(--ecotransition);
+            background-color: #FAFAFA;
+        }
+
+        .ecoinput:focus {
+            outline: none;
+            border-color: var(--ecoprimary);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+            background-color: white;
+        }
+
+        .ecobtn {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, var(--ecoprimary) 0%, var(--ecodark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--ecoborder-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--ecotransition);
+            margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ecobtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .ecobtn:active {
+            transform: translateY(0);
+        }
+
+        .ecobtn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            transition: var(--ecotransition);
+        }
+
+        .ecobtn:hover::after {
+            left: 100%;
+        }
+
+        .ecoalert {
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--ecoborder-radius);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            transition: var(--ecotransition);
+            text-align: center;
+        }
+
+        .ecoalert-success {
+            background-color: rgba(75, 181, 67, 0.1);
+            border-left: 4px solid var(--ecosuccess);
+            color: var(--ecosuccess);
+            animation: ecofadeIn 0.5s ease-out;
+        }
+
+        .ecoalert-error {
+            background-color: rgba(255, 82, 82, 0.1);
+            border-left: 4px solid var(--ecoerror);
+            color: var(--ecoerror);
+            animation: ecofadeIn 0.5s ease-out;
+        }
+
+        .ecopassword-toggle {
+            position: absolute;
+            right: 12px;
+            top: 42px;
+            cursor: pointer;
+            color: #9E9E9E;
+            z-index: 2;
+        }
+
+        .ecopassword-toggle:hover {
+            color: var(--ecoprimary);
+        }
+
+        @media (max-width: 768px) {
+            .ecoreset-card {
+                flex-direction: column;
+            }
+
+            .ecoreset-illustration {
+                padding: 2rem;
+            }
+
+            .ecoreset-content {
+                padding: 2rem;
+            }
+        }
+
+        @keyframes ecofadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes ecorotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .ecofloating {
+            animation: ecofloat 6s ease-in-out infinite;
+        }
+
+        @keyframes ecofloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .login-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            transition: var(--transition);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-illustration {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: white;
+        }
+
+        .login-illustration img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+            transition: var(--transition);
+        }
+
+        .login-illustration img:hover {
+            transform: scale(1.05);
+        }
+
+        .login-form {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .login-header h1 {
+            color: var(--dark-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .login-header p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #f8f9fa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            background-color: white;
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .login-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .login-footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .alert {
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .alert-danger {
+            background-color: rgba(255, 51, 51, 0.1);
+            border-left: 4px solid var(--error-color);
+            color: var(--error-color);
+        }
+
+        .alert-success {
+            background-color: rgba(75, 181, 67, 0.1);
+            border-left: 4px solid var(--success-color);
+            color: var(--success-color);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            .login-card {
+                flex-direction: column;
+            }
+
+            .login-illustration {
+                padding: 1.5rem;
+            }
+
+            .login-form {
+                padding: 2rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating animation for illustration */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
 
    /* Footer Styles - Modified */
    .footer-section {
@@ -161,196 +618,699 @@
        }
    }
 
+	:root {
+            --primary-color: #5432ff;
+            --primary-hover: #4728d5;
+            --secondary-color: #ff7a00;
+            --light-bg: #f8f9fe;
+            --dark-text: #333;
+            --light-text: #666;
+            --border-radius: 12px;
+        }
+
+        .registration-container {
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+
+        .image-container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #5432ff 0%, #7c5cff 100%);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 25px rgba(84, 50, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .image-container img {
+            object-fit: contain;
+            max-height: 85%;
+            max-width: 85%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-container::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .image-container::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -30px;
+            left: -30px;
+        }
+
+        .form-container {
+            padding: 2rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: #fff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1.5rem 1rem;
+        }
+
+        .card-header p.fs-4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-body {
+            padding: 2rem 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            padding: 0.7rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(84, 50, 255, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(84, 50, 255, 0.2);
+        }
+
+        .card-footer {
+            background-color: #fff;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1.2rem;
+        }
+
+        .card-footer a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .alert {
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 1rem;
+            background-color: #f8f9fe;
+            border: 1px dashed rgba(84, 50, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-label:hover {
+            background-color: rgba(84, 50, 255, 0.05);
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        /* Floating icons */
+        .floating-icon {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .icon-1 {
+            top: 15%;
+            left: 15%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .icon-2 {
+            top: 30%;
+            right: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .icon-3 {
+            bottom: 20%;
+            left: 20%;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4bb543;
+            --error-color: #ff3333;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .password-reset-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .password-reset-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            transition: var(--transition);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .password-reset-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .password-reset-illustration {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .password-reset-illustration::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+
+        .password-reset-illustration img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .password-reset-illustration h2 {
+            margin-top: 2rem;
+            font-weight: 700;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .password-reset-illustration p {
+            opacity: 0.9;
+            z-index: 1;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .password-reset-form {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .password-reset-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .password-reset-header h1 {
+            color: var(--dark-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .password-reset-header p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #f8f9fa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            background-color: white;
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
+        }
+
+        .btn-reset {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .btn-reset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-reset:active {
+            transform: translateY(0);
+        }
+
+        .password-reset-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .password-reset-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .password-reset-footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .alert-message {
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .alert-success {
+            background-color: rgba(75, 181, 67, 0.1);
+            border-left: 4px solid var(--success-color);
+            color: var(--success-color);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .alert-error {
+            background-color: rgba(255, 51, 51, 0.1);
+            border-left: 4px solid var(--error-color);
+            color: var(--error-color);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .password-reset-card {
+                flex-direction: column;
+            }
+
+            .password-reset-illustration {
+                padding: 1.5rem;
+            }
+
+            .password-reset-form {
+                padding: 2rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating animation for illustration */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .back-to-login {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .back-to-login:hover {
+            color: var(--secondary-color);
+            transform: translateX(-5px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .image-container {
+                height: 300px;
+                margin-bottom: 2rem;
+            }
+        }
+
+
+
 </style>
 <body>
-	<!-- Start Navbar  -->
-	<nav class="navbar navbar-expand-lg  bg-primary fixed-top navbar-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><i
-				class="fa-solid fa-cart-shopping"></i> Ecom Store</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<th:block th:if="${user==null}">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/"><i class="fa-solid fa-house"></i>
-								Home</a></li>
-					</th:block>
+<!-- Start Premium Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%); box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+	<div class="container-fluid">
+		<a class="navbar-brand fw-bold" href="#" style="font-family: 'Poppins', sans-serif;">
+			<i class="fas fa-leaf me-2" style="color: #a6ff4d;"></i> GreenCart
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#greenCartNav" aria-controls="greenCartNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-					<th:block th:unless="${user==null}">
-						<li class="nav-item" th:if="${user.role=='ROLE_ADMIN'}"><a
-							class="nav-link active" aria-current="page" href="/admin/"><i
-								class="fa-solid fa-house"></i> Home</a></li>
-
-						<li class="nav-item" th:if="${user.role=='ROLE_USER'}"><a
-							class="nav-link active" aria-current="page" href="/"><i
-								class="fa-solid fa-house"></i> Home</a></li>
-					</th:block>
-
-
-
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/products">Product</a></li>
-
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> Category </a>
-						<ul class="dropdown-menu">
-							<li th:each="c:${categorys}"><a class="dropdown-item"
-								th:href="@{'/products?category='+${c.name}}">[[${c.name}]]</a></li>
-
-						</ul></li>
-
-				</ul>
-
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<th:block th:if="${user==null}">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/signin"><i
-								class="fa-solid fa-right-to-bracket"></i> LOGIN</a></li>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/register">REGISTER</a></li>
-
-
-					</th:block>
-
-					<th:block th:if="${user!=null}">
-						<th:block th:if="${user.role=='ROLE_USER'}">
-							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" href="/user/cart"><i
-									class="fa-solid fa-cart-shopping"></i> Cart [ [[${countCart}]]
-									]</a></li>
-						</th:block>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle active" href="#" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> <i
-								class="fa-solid fa-user"></i> [[${user.name}]]
+		<div class="collapse navbar-collapse" id="greenCartNav">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<!-- Dynamic Home Link -->
+				<th:block th:if="${user==null}">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/">
+							<i class="fas fa-home me-1"></i> Home
 						</a>
-							<ul class="dropdown-menu">
-								<li th:if="${user.role=='ROLE_USER'}"><a
-									class="dropdown-item" href="/user/profile">Profile</a></li>
+					</li>
+				</th:block>
 
-								<li th:if="${user.role=='ROLE_ADMIN'}"><a
-									class="dropdown-item" href="/admin/profile">Profile</a></li>
+				<th:block th:unless="${user==null}">
+					<li class="nav-item" th:if="${user.role=='ROLE_ADMIN'}">
+						<a class="nav-link active" aria-current="page" href="/admin/">
+							<i class="fas fa-home me-1"></i> Dashboard
+						</a>
+					</li>
 
-								<li th:if="${user.role=='ROLE_USER'}"><a
-									class="dropdown-item" href="/user/user-orders">My Orders</a></li>
-								<li><a class="dropdown-item" href="/logout">Logout</a></li>
-								<li><hr class="dropdown-divider"></li>
+					<li class="nav-item" th:if="${user.role=='ROLE_USER'}">
+						<a class="nav-link active" aria-current="page" href="/">
+							<i class="fas fa-home me-1"></i> Home
+						</a>
+					</li>
+				</th:block>
 
-							</ul></li>
+				<!-- Products Link -->
+				<li class="nav-item">
+					<a class="nav-link active" href="/products">
+						<i class="fas fa-store me-1"></i> Shop
+					</a>
+				</li>
 
-						<!-- <li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/logout"><i
-								class="fa-solid fa-right-to-bracket"></i> Logout</a></li> -->
+				<!-- Category Dropdown -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle active" href="#" role="button"
+					   data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="fas fa-tags me-1"></i> Categories
+					</a>
+					<ul class="dropdown-menu" style="border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+						<li th:each="c:${categorys}">
+							<a class="dropdown-item" th:href="@{'/products?category='+${c.name}}">
+								<i class="fas fa-circle-notch me-2" style="font-size: 0.5rem; vertical-align: middle;"></i>
+								[[${c.name}]]
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+			<!-- Right Side Navigation -->
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				<th:block th:if="${user==null}">
+					<li class="nav-item">
+						<a class="nav-link btn btn-outline-light me-2" href="/signin" style="border-radius: 20px;">
+							<i class="fas fa-sign-in-alt me-1"></i> Login
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-light text-dark" href="/register" style="border-radius: 20px;">
+							<i class="fas fa-user-plus me-1"></i> Register
+						</a>
+					</li>
+				</th:block>
+
+				<th:block th:if="${user!=null}">
+					<th:block th:if="${user.role=='ROLE_USER'}">
+						<li class="nav-item me-3">
+							<a class="nav-link position-relative" href="/user/cart" style="color: white;">
+								<i class="fas fa-shopping-cart"></i>
+								<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+									  style="font-size: 0.6rem;">
+                                    [[${countCart}]]
+                                    <span class="visually-hidden">items in cart</span>
+                                </span>
+							</a>
+						</li>
 					</th:block>
 
-				</ul>
-
-			</div>
+					<!-- User Dropdown -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active d-flex align-items-center" href="#"
+						   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<div class="me-2 d-flex align-items-center">
+								<div class="rounded-circle bg-white d-flex justify-content-center align-items-center"
+									 style="width: 30px; height: 30px; color: #6e48aa;">
+									<i class="fas fa-user"></i>
+								</div>
+							</div>
+							[[${user.name}]]
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end" style="border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+							<li th:if="${user.role=='ROLE_USER'}">
+								<a class="dropdown-item" href="/user/profile">
+									<i class="fas fa-user-circle me-2"></i> Profile
+								</a>
+							</li>
+							<li th:if="${user.role=='ROLE_ADMIN'}">
+								<a class="dropdown-item" href="/admin/profile">
+									<i class="fas fa-user-cog me-2"></i> Profile
+								</a>
+							</li>
+							<li th:if="${user.role=='ROLE_USER'}">
+								<a class="dropdown-item" href="/user/user-orders">
+									<i class="fas fa-box-open me-2"></i> My Orders
+								</a>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a class="dropdown-item text-danger" href="/logout">
+									<i class="fas fa-sign-out-alt me-2"></i> Logout
+								</a>
+							</li>
+						</ul>
+					</li>
+				</th:block>
+			</ul>
 		</div>
-	</nav>
-	<!-- End Navbar -->
-
+	</div>
+</nav>
+<!-- End Premium Navbar -->
 	<div th:replace="${content}"></div>
-
-	<!-- Start Premium Footer -->
-	<footer class="footer-section bg-dark pt-3 pb-2">
-		<div class="container">
-			<div class="row g-5">
-				<!-- Company Info -->
-				<div class="col-lg-4 col-md-6">
-					<div class="footer-about">
-						<a href="#" class="d-flex align-items-center mb-4 text-decoration-none">
-							<i class="fas fa-shopping-bag fa-2x text-primary me-2"></i>
-							<span class="h3 text-white mb-0">Ecom Store</span>
-						</a>
-						<p class="text-light mb-4" style="font-size: 1.1rem; opacity: 0.9;">Your premier online shopping destination in Rwanda. We deliver quality products with exceptional service.</p>
-
-						<div class="social-icons">
-							<a href="#" class="icon-circle bg-primary text-white me-2"><i class="fab fa-facebook-f"></i></a>
-							<a href="#" class="icon-circle bg-primary text-white me-2"><i class="fab fa-twitter"></i></a>
-							<a href="#" class="icon-circle bg-primary text-white me-2"><i class="fab fa-instagram"></i></a>
-							<a href="#" class="icon-circle bg-primary text-white"><i class="fab fa-linkedin-in"></i></a>
-						</div>
+<!-- Start Modern Footer -->
+<footer class="footer-section" style="background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%); padding: 1.5rem 0;">
+	<div class="container">
+		<div class="row g-4">
+			<!-- Brand Info -->
+			<div class="col-lg-4 col-md-6">
+				<div class="footer-brand">
+					<a href="#" class="d-flex align-items-center text-decoration-none mb-3">
+						<i class="fas fa-leaf fa-xl me-2" style="color: #a6ff4d;"></i>
+						<span class="h4 text-white mb-0">GreenCart</span>
+					</a>
+					<p class="text-white-50 mb-3" style="font-size: 0.9rem;">
+						Rwanda's premier eco-friendly online marketplace. Sustainable products delivered with care.
+					</p>
+					<div class="social-icons">
+						<a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+						<a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+						<a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
 					</div>
-				</div>
-
-				<!-- Quick Links -->
-				<div class="col-lg-2 col-md-6">
-					<h5 class="text-white mb-4" style="font-size: 1.25rem;">Quick Links</h5>
-					<ul class="list-unstyled">
-						<li class="mb-2"><a href="/" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Home</a></li>
-						<li class="mb-2"><a href="/products" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Products</a></li>
-						<li class="mb-2"><a href="/about" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">About Us</a></li>
-						<li class="mb-2"><a href="/contact" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Contact</a></li>
-						<li class="mb-2"><a href="/blog" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Blog</a></li>
-						<li><a href="/faq" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">FAQs</a></li>
-					</ul>
-				</div>
-
-				<!-- Categories -->
-				<div class="col-lg-2 col-md-6">
-					<h5 class="text-white mb-4" style="font-size: 1.25rem;">Categories</h5>
-					<ul class="list-unstyled">
-						<li class="mb-2"><a href="/products?category=Electronics" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Electronics</a></li>
-						<li class="mb-2"><a href="/products?category=Fashion" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Fashion</a></li>
-						<li class="mb-2"><a href="/products?category=Home" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Home & Garden</a></li>
-						<li class="mb-2"><a href="/products?category=Beauty" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Beauty</a></li>
-						<li><a href="/products?category=Sports" class="text-light text-decoration-none hover-text-primary" style="font-size: 1.05rem; opacity: 0.9;">Sports & Outdoors</a></li>
-					</ul>
-				</div>
-
-				<!-- Contact Info -->
-				<div class="col-lg-4 col-md-6">
-					<h5 class="text-white mb-4" style="font-size: 1.25rem;">Contact Us</h5>
-					<ul class="list-unstyled text-light" style="opacity: 0.9;">
-						<li class="mb-3 d-flex align-items-start">
-							<i class="fas fa-map-marker-alt text-primary mt-1 me-3" style="font-size: 1.1rem;"></i>
-							<span style="font-size: 1.05rem;">AUCA Gishushu, Kigali, Rwanda</span>
-						</li>
-						<li class="mb-3 d-flex align-items-start">
-							<i class="fas fa-phone-alt text-primary mt-1 me-3" style="font-size: 1.1rem;"></i>
-							<span style="font-size: 1.05rem;"><a href="tel:+250792397681" class="text-light text-decoration-none hover-text-primary">+250 792 397 681</a></span>
-						</li>
-						<li class="mb-3 d-flex align-items-start">
-							<i class="fas fa-envelope text-primary mt-1 me-3" style="font-size: 1.1rem;"></i>
-							<span style="font-size: 1.05rem;"><a href="mailto:muhirehillary720@gmail.com" class="text-light text-decoration-none hover-text-primary">muhirehillary720@gmail.com</a></span>
-						</li>
-						<li class="d-flex align-items-start">
-							<i class="fas fa-clock text-primary mt-1 me-3" style="font-size: 1.1rem;"></i>
-							<span style="font-size: 1.05rem;">Mon-Fri: 8AM - 6PM<br>Sat-Sun: 9AM - 4PM</span>
-						</li>
-					</ul>
 				</div>
 			</div>
 
-			<hr class="my-4 bg-secondary" style="opacity: 0.2;">
+			<!-- Quick Links -->
+			<div class="col-lg-2 col-md-6">
+				<h6 class="text-white mb-3" style="font-size: 1rem;">Quick Links</h6>
+				<ul class="list-unstyled">
+					<li class="mb-2"><a href="/" class="text-white-50 text-decoration-none" style="font-size: 0.85rem;">Home</a></li>
+					<li class="mb-2"><a href="/products" class="text-white-50 text-decoration-none" style="font-size: 0.85rem;">Shop</a></li>
+					<li class="mb-2"><a href="/about" class="text-white-50 text-decoration-none" style="font-size: 0.85rem;">About</a></li>
+					<li><a href="/contact" class="text-white-50 text-decoration-none" style="font-size: 0.85rem;">Contact</a></li>
+				</ul>
+			</div>
 
-			<!-- Payment Methods and Copyright -->
-			<div class="row align-items-center">
-				<div class="col-md-6 mb-3 mb-md-0">
-					<div class="payment-methods">
-						<span class="text-light me-2" style="font-size: 1.05rem; opacity: 0.9;">We accept:</span>
-						<i class="fab fa-cc-visa text-light me-2" style="font-size: 1.5rem; opacity: 0.9;"></i>
-						<i class="fab fa-cc-mastercard text-light me-2" style="font-size: 1.5rem; opacity: 0.9;"></i>
-						<i class="fab fa-cc-paypal text-light me-2" style="font-size: 1.5rem; opacity: 0.9;"></i>
-						<i class="fab fa-cc-mtn text-light me-2" style="font-size: 1.5rem; opacity: 0.9;"></i>
-						<i class="fab fa-cc-airtel text-light" style="font-size: 1.5rem; opacity: 0.9;"></i>
-					</div>
-				</div>
-				<div class="col-md-6 text-md-end">
-					<p class="text-light mb-0" style="font-size: 1.05rem; opacity: 0.9;">&copy; 2023 Ecom Store. All rights reserved.</p>
+			<!-- Help Center -->
+			<div class="col-lg-2 col-md-6">
+				<h6 class="text-white mb-3" style="font-size: 1rem;">Help Center</h6>
+				<ul class="list-unstyled">
+					<li class="mb-2"><a href="/faq" class="text-white-50 text-decoration-none" style="font-size: 0.85rem;">FAQs</a></li>
+					<li class="mb-2"><a href="/shipping" class="text-white-50 text-decoration-none" style="font-size: 0.85rem;">Shipping</a></li>
+					<li class="mb-2"><a href="/returns" class="text-white-50 text-decoration-none" style="font-size: 0.85rem;">Returns</a></li>
+					<li><a href="/privacy" class="text-white-50 text-decoration-none" style="font-size: 0.85rem;">Privacy Policy</a></li>
+				</ul>
+			</div>
+
+			<!-- Contact Info -->
+			<div class="col-lg-4 col-md-6">
+				<h6 class="text-white mb-3" style="font-size: 1rem;">Contact Developer</h6>
+				<ul class="list-unstyled text-white-50" style="font-size: 0.85rem;">
+					<li class="mb-2 d-flex align-items-start">
+						<i class="fas fa-user me-2 mt-1" style="width: 16px; color: #a6ff4d;"></i>
+						<span>Nahayo Arnaud</span>
+					</li>
+					<li class="mb-2 d-flex align-items-start">
+						<i class="fas fa-phone me-2 mt-1" style="width: 16px; color: #a6ff4d;"></i>
+						<a href="tel:0786761810" class="text-white-50 text-decoration-none">078 676 1810</a>
+					</li>
+					<li class="d-flex align-items-start">
+						<i class="fas fa-envelope me-2 mt-1" style="width: 16px; color: #a6ff4d;"></i>
+						<a href="mailto:arnaudaven@gmail.com" class="text-white-50 text-decoration-none">arnaudaven@gmail.com</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<hr class="my-3" style="border-color: rgba(255,255,255,0.1);">
+
+		<!-- Copyright -->
+		<div class="row align-items-center">
+			<div class="col-md-6 mb-2 mb-md-0">
+				<p class="text-white-50 mb-0" style="font-size: 0.8rem;">&copy; 2023 GreenCart. All rights reserved.</p>
+			</div>
+			<div class="col-md-6 text-md-end">
+				<div class="payment-icons">
+					<i class="fab fa-cc-visa text-white-50 me-2"></i>
+					<i class="fab fa-cc-mastercard text-white-50 me-2"></i>
+					<i class="fab fa-cc-paypal text-white-50"></i>
 				</div>
 			</div>
 		</div>
-	</footer>
-	<!-- End Premium Footer -->
+	</div>
+</footer>
+<!-- End Modern Footer -->
 
 
 	<!-- Jquery Validation Library  -->
